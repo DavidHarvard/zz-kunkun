@@ -32,28 +32,23 @@ jobs:
           hugo-version: 0.161.0
           extended: true
 
-      - name: Build
-        run: hugo
+      - name: Build Hugo site
+        run: hugo --minify
 
-      - name: Upload Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
   deploy:
     needs: build
-
     runs-on: ubuntu-latest
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    permissions:
-      pages: write
-      id-token: write
-
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
