@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = "https://davidharvard.github.io/zz-kunkun/"
+languageCode = "zh-cn"
+title = "ZZ KunKun"
 theme = "hugo-theme-stack"
